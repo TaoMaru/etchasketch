@@ -56,3 +56,7 @@ h1 {
     box-shadow: 5px 3px #c79191;
     transition: 0.1s;
 }
+
+.newBorder {
+    border: 2px solid black;
+}

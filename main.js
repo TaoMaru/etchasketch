@@ -57,19 +57,30 @@ function getGridSize() {
 
 function makeNewGrid() {
     getGridSize();
+    removeOldGrid();
     makeGrid(gridDimension);
+    let gridSquares = document.querySelectorAll(".container>div");
+    for(let aSquare of gridSquares) {
+        aSquare.addEventListener("mouseover", darken);
+    }
+}
+
+function removeOldGrid() {
+    for(let box of gridBoxes) {
+        gridContainer.removeChild(box);
+    }
 }
 
 const btn = document.querySelector(".setGrid");
 btn.addEventListener("mouseover", highlight);
-btn.addEventListener("click", getGridSize);
+btn.addEventListener("click", makeNewGrid);
 btn.addEventListener("mouseout", removeHighlight);
 
 let gridDimension = 16;
 
 makeGrid(gridDimension);
 
-const gridBoxes = document.querySelectorAll(".container>div");
+let gridBoxes = document.querySelectorAll(".container>div");
 for(let aBox of gridBoxes) {
     aBox.addEventListener("mouseover", darken);
 };
