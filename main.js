@@ -24,3 +24,13 @@ function makeGrid() {
 }
 
 makeGrid();
+
+function darken(e) {
+    console.log(e);
+    e.target.classList.add("dark");
+}
+
+const gridBoxes = document.querySelectorAll(".container>div");
+for(let aBox of gridBoxes) {
+    aBox.addEventListener("mouseover", darken);
+};

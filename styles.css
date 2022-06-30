@@ -1,13 +1,16 @@
 .container {
     display: flex;
+    width: 800px;
+    height: 800px;
+    margin-left: 500px;
 }
 
 .gridDiv {
     flex: 1 1 auto;
     border: 2px solid #4b4949;
     box-sizing: border-box;
-    height: 100px;
-    width: auto;
+    height: 50px;
+    width: 50px;
     margin: 0;
     padding: 0;
 }
@@ -18,6 +21,10 @@
     display: flex;
     flex-direction: column;
     
-    height: 1600px;
+    height: 800px;
     width: auto;
+}
+
+.dark {
+    background-color: #4b4949;
 }
