@@ -1,14 +1,5 @@
 const gridContainer = document.querySelector(".container");
 
-function makeRow() {
-    for(let i = 0; i < 16; i++) {
-       let newBox = document.createElement("div");
-       gridContainer.appendChild(newBox);
-       newBox.classList.add("gridDiv");
-    }
-}
-
-//makeRow();
 
 function makeGrid(gridSize) {
     for(let i = 0; i < gridSize; i++) {
@@ -27,6 +18,16 @@ function makeGrid(gridSize) {
 function darken(e) {
     console.log(e);
     e.target.classList.add("dark");
+}
+
+function changeColor(e) {
+    console.log(e);
+    let randomR = Math.floor(Math.random() * 255);
+    let randomG = Math.floor(Math.random() * 255);
+    let randomB = Math.floor(Math.random() * 255);
+
+    let randomColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+    e.target.style.backgroundColor = randomColor;
 }
 
 function highlight(e) {
@@ -57,17 +58,15 @@ function getGridSize() {
 
 function makeNewGrid() {
     getGridSize();
-    console.log(currentGriddles);
     removeOldGrid(currentGriddles);
     makeGrid(gridDimension);
     currentGriddles = document.querySelectorAll(".container>div");
     for(let aSquare of currentGriddles) {
-        aSquare.addEventListener("mouseover", darken);
+        aSquare.addEventListener("mouseover", changeColor);
     }
 }
 
 function removeOldGrid(currentGridBoxes) {
-    console.log(currentGridBoxes);
     for(let box of currentGridBoxes) {
         gridContainer.removeChild(box);
     }
@@ -84,5 +83,5 @@ makeGrid(gridDimension);
 
 let currentGriddles = document.querySelectorAll(".container>div");
 for(let aBox of currentGriddles) {
-    aBox.addEventListener("mouseover", darken);
+    aBox.addEventListener("mouseover", changeColor);
 };
