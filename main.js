@@ -30,7 +30,22 @@ function darken(e) {
     e.target.classList.add("dark");
 }
 
+function highlight(e) {
+    console.log(e);
+    e.target.classList.add("light");
+}
+
+function removeHighlight(e) {
+    console.log(e);
+    e.target.classList.remove("light");
+}
+
 const gridBoxes = document.querySelectorAll(".container>div");
 for(let aBox of gridBoxes) {
     aBox.addEventListener("mouseover", darken);
 };
+
+const btn = document.querySelector(".setGrid");
+btn.addEventListener("mouseover", highlight);
+btn.addEventListener("click", makeGrid);
+btn.addEventListener("mouseout", removeHighlight);
