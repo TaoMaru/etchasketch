@@ -40,6 +40,24 @@ function removeHighlight(e) {
     e.target.classList.remove("light");
 }
 
+function getGridSize() {
+    do {
+        try{
+            gridDimension = parseInt(window.prompt(
+                "Please enter a number dimension for the grid (e.g. 16): "));
+        }
+        catch(err) {
+            gridDimension = 101;
+        }
+        if(isNaN(gridDimension)) {
+            gridDimension = 101;
+        }
+    }
+    while(gridDimension > 100);
+    console.log(gridDimension);
+    return gridDimension;
+}
+
 const gridBoxes = document.querySelectorAll(".container>div");
 for(let aBox of gridBoxes) {
     aBox.addEventListener("mouseover", darken);
@@ -47,5 +65,7 @@ for(let aBox of gridBoxes) {
 
 const btn = document.querySelector(".setGrid");
 btn.addEventListener("mouseover", highlight);
-btn.addEventListener("click", makeGrid);
+btn.addEventListener("click", getGridSize);
 btn.addEventListener("mouseout", removeHighlight);
+
+let gridDimension = 16;
