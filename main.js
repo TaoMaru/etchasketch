@@ -57,16 +57,18 @@ function getGridSize() {
 
 function makeNewGrid() {
     getGridSize();
-    removeOldGrid();
+    console.log(currentGriddles);
+    removeOldGrid(currentGriddles);
     makeGrid(gridDimension);
-    let gridSquares = document.querySelectorAll(".container>div");
-    for(let aSquare of gridSquares) {
+    currentGriddles = document.querySelectorAll(".container>div");
+    for(let aSquare of currentGriddles) {
         aSquare.addEventListener("mouseover", darken);
     }
 }
 
-function removeOldGrid() {
-    for(let box of gridBoxes) {
+function removeOldGrid(currentGridBoxes) {
+    console.log(currentGridBoxes);
+    for(let box of currentGridBoxes) {
         gridContainer.removeChild(box);
     }
 }
@@ -80,7 +82,7 @@ let gridDimension = 16;
 
 makeGrid(gridDimension);
 
-let gridBoxes = document.querySelectorAll(".container>div");
-for(let aBox of gridBoxes) {
+let currentGriddles = document.querySelectorAll(".container>div");
+for(let aBox of currentGriddles) {
     aBox.addEventListener("mouseover", darken);
 };
