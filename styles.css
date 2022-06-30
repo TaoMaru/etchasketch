@@ -13,8 +13,11 @@
 }
 
 .gridColumn {
+    flex: 1 1 auto;
+
     display: flex;
     flex-direction: column;
-    height: auto;
+    
+    height: 1600px;
     width: auto;
 }
