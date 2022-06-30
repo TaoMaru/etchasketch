@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+}
+
+.gridDiv {
+    flex: 1 1 auto;
+    border: 2px solid #4b4949;
+    box-sizing: border-box;
+    height: 100px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.gridColumn {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+}
