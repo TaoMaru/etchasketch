@@ -10,10 +10,10 @@ function makeRow() {
 
 //makeRow();
 
-function makeGrid() {
-    for(let i = 0; i < 16; i++) {
+function makeGrid(gridSize) {
+    for(let i = 0; i < gridSize; i++) {
         let newCol = document.createElement("div");
-        for(let aNum = 0; aNum < 16; aNum++) {
+        for(let aNum = 0; aNum < gridSize; aNum++) {
             let aBox = document.createElement("div");
             newCol.appendChild(aBox);
             aBox.classList.add("gridDiv");
@@ -23,7 +23,6 @@ function makeGrid() {
     }
 }
 
-makeGrid();
 
 function darken(e) {
     console.log(e);
@@ -54,14 +53,12 @@ function getGridSize() {
         }
     }
     while(gridDimension > 100);
-    console.log(gridDimension);
-    return gridDimension;
 }
 
-const gridBoxes = document.querySelectorAll(".container>div");
-for(let aBox of gridBoxes) {
-    aBox.addEventListener("mouseover", darken);
-};
+function makeNewGrid() {
+    getGridSize();
+    makeGrid(gridDimension);
+}
 
 const btn = document.querySelector(".setGrid");
 btn.addEventListener("mouseover", highlight);
@@ -69,3 +66,10 @@ btn.addEventListener("click", getGridSize);
 btn.addEventListener("mouseout", removeHighlight);
 
 let gridDimension = 16;
+
+makeGrid(gridDimension);
+
+const gridBoxes = document.querySelectorAll(".container>div");
+for(let aBox of gridBoxes) {
+    aBox.addEventListener("mouseover", darken);
+};
